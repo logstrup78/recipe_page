@@ -16,9 +16,14 @@ White: hsl(0, 0%, 100%)
 **********/  
 
 :root{
-  --headline: hsl(24, 5%, 18%);
   --font-headline: "young serif", serif;
   --font-copy: "Outfit", sans-serif;
+  --color-rose50: hsl(330, 100%, 98%);
+  --color-rose800: hsl(332, 51%, 32%);
+  --color-stone150: hsl(30, 18%, 87%);
+  --color-stone600: hsl(30, 10%, 34%);
+  --color-stone900: hsl(24, 5%, 18%);
+  --color-brown800: hsl(14, 45%, 36%);
 }
 
 * {
@@ -32,15 +37,29 @@ White: hsl(0, 0%, 100%)
     height: auto;
     display: block;
   }
-h1,h2,h3{
-  font-family: var(--font-headline);
+h1,h2{
+  font-family: var(--color-stone900);
   font-weight: 400;
+}
+h3{
+  font-family: var(--font-headline);
+  font-size: 28px;
+  font-style: normal;
+  color: var(--color-brown800);
+  font-weight: 400;
+  margin-top: 1rem;
 }
 
 p{
   font-family: var(--font-copy);
   font-weight: 400;
   line-height: 150%;
+  color: var(--color-stone600);
+}
+
+hr{
+  margin-block: 1rem;
+  color: var(--color-stone150);
 }
 
 /* Grid container*/
@@ -57,4 +76,82 @@ h1{
   font-size: 2.5rem;
   padding-block: 40px;
   top: 0;
+}
+
+.preparation{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 16px;
+  background-color: var(--color-rose50);
+  padding: 24px;
+  margin-block: 1.5rem;
+}
+.preparation h2{
+  font-family: var(--font-copy);
+  font-size: 20px;
+  color: var(--color-rose800);
+  font-weight: 600;
+
+}
+.preparation li{
+  font-family: var(--font-copy);
+  font-weight: 400;
+  color: var(--color-stone600);
+  line-height: 2rem;
+  padding-left: 1.5rem;
+}
+.preparation li strong{
+font-weight: 700;
+}
+
+.ingredients{
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.ingredients li{
+  color: var(--color-stone600);
+  font-size: 1rem;
+  font-family: var(--font-copy);
+  font-weight: 400;
+  line-height: 150%;
+
+}
+
+.instructions{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  margin-inline: 1.5rem;
+  
+}
+.instructions ol{
+  padding-top: 1rem;
+}
+
+.instructions li{
+  font-family: var(--font-copy);
+  color: var(--color-stone600);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5rem;
+}
+table{
+  width: 311px;
+  padding-top: 12px;
+}
+
+td{
+  font-family: var(--font-copy);
+  color: var(--color-stone600);
+  border-bottom: 1px solid var(--color-stone150);
+  padding-inline: 1.5rem;
+  padding-block: 12px;
+}
+.number{
+  color: var(--color-brown800);
 }
