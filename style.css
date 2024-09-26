@@ -13,13 +13,14 @@ White: hsl(0, 0%, 100%)
 - Rose 800: hsl(332, 51%, 32%)
 - Rose 50: hsl(330, 100%, 98%)
 
-**********/  
+**********/
 
-:root{
+:root {
   --font-headline: "young serif", serif;
   --font-copy: "Outfit", sans-serif;
   --color-rose50: hsl(330, 100%, 98%);
   --color-rose800: hsl(332, 51%, 32%);
+  --color-stone100: hsl(30, 54%, 90%);
   --color-stone150: hsl(30, 18%, 87%);
   --color-stone600: hsl(30, 10%, 34%);
   --color-stone900: hsl(24, 5%, 18%);
@@ -27,21 +28,24 @@ White: hsl(0, 0%, 100%)
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-h1,h2{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+h1,
+h2 {
   font-family: var(--color-stone900);
   font-weight: 400;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
-h3{
+h3 {
   font-family: var(--font-headline);
   font-size: 28px;
   font-style: normal;
@@ -50,108 +54,167 @@ h3{
   margin-top: 1rem;
 }
 
-p{
+p {
   font-family: var(--font-copy);
   font-weight: 400;
   line-height: 150%;
   color: var(--color-stone600);
 }
 
-hr{
+hr {
   margin-block: 1rem;
   color: var(--color-stone150);
 }
-
+.hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* Grid container*/
 
-.container{
+.container {
   display: grid;
   grid-template-columns: 1fr;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-inline: 2rem;
 }
 
-h1{
-  color: var(--headline);
-  font-size: 2.5rem;
-  padding-block: 40px;
-  top: 0;
-}
-
-.preparation{
+.preparation {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  gap: 16px;
   background-color: var(--color-rose50);
-  padding: 24px;
-  margin-block: 1.5rem;
+  padding-inline: 24px;
+  margin-block: 1rem;
 }
-.preparation h2{
+.preparation h2 {
   font-family: var(--font-copy);
   font-size: 20px;
   color: var(--color-rose800);
   font-weight: 600;
-
 }
-.preparation li{
+.preparation li {
   font-family: var(--font-copy);
   font-weight: 400;
   color: var(--color-stone600);
   line-height: 2rem;
   padding-left: 1.5rem;
 }
-.preparation li strong{
-font-weight: 700;
+.preparation li strong {
+  font-weight: 700;
 }
 
-.ingredients{
+.ingredients {
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
 }
-.ingredients li{
+.ingredients li {
   color: var(--color-stone600);
   font-size: 1rem;
   font-family: var(--font-copy);
   font-weight: 400;
   line-height: 150%;
-
 }
 
-.instructions{
+.instructions {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   align-self: stretch;
   margin-inline: 1.5rem;
-  
 }
-.instructions ol{
+.instructions ol {
   padding-top: 1rem;
 }
 
-.instructions li{
+.instructions li {
   font-family: var(--font-copy);
   color: var(--color-stone600);
   font-weight: 400;
   font-style: normal;
   line-height: 1.5rem;
 }
-table{
+table {
   width: 311px;
   padding-top: 12px;
 }
+ol {
+  counter-reset: list-counter;
+  list-style-position: inside;
+  list-style: none;
+}
 
-td{
+ol li {
+  counter-increment: list-counter;
+  position: relative; /* Gør det muligt at flytte teksten */
+  padding-left: 1rem; /* Giver plads til at flytte teksten mod højre */
+}
+ol li::marker {
+  position: absolute; /* Sørger for, at markøren (tallene) forbliver på deres plads */
+  left: 0; /* Fastgør tallene i venstre side */
+}
+
+ol li::before {
+  content: counter(list-counter) ". "; /* Tilføj nummering */
+  color: var(--color-rose800); /* Ændrer farven på tallene */
+  font-weight: bold; /* Tilføj evt. stil til tallene */
+}
+
+td {
   font-family: var(--font-copy);
   color: var(--color-stone600);
   border-bottom: 1px solid var(--color-stone150);
   padding-inline: 1.5rem;
   padding-block: 12px;
 }
-.number{
+.number {
   color: var(--color-brown800);
+}
+
+/* MediaQueries for tablet version*/
+
+@media (min-width: 1024px) {
+  body {
+    background-color: var(--color-stone100);
+  }
+  .hero {
+    border-radius: 12px;
+  }
+  .heroimg {
+    max-width: 616px;
+    margin-inline: auto;
+    background-color: white;
+    padding-top: 2rem;
+    padding-inline: 2rem;
+  }
+
+  .container {
+    max-width: 616px;
+    margin-inline: auto;
+    background-color: #fff;
+    padding-block: 2rem;
+  }
+}
+
+/* MediaQueries for desktop version*/
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 734px;
+    margin-inline: auto;
+    background-color: #fff;
+    padding-block: 2rem;
+  }
+  .hero {
+   border-radius: 12px;
+  }
+  .heroimg {
+    max-width: 734px;
+    margin-inline: auto;
+    background-color: white;
+    padding-top: 2rem;
+    padding-inline: 2rem;
+  }
 }
