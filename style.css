@@ -40,7 +40,7 @@ img {
 }
 h1,
 h2 {
-  font-family: var(--color-stone900);
+  font-family: var(--font-headline);
   font-weight: 400;
   margin-bottom: 1rem;
   font-size: 2.5rem;
@@ -85,6 +85,7 @@ hr {
   align-self: stretch;
   background-color: var(--color-rose50);
   padding-inline: 24px;
+  padding-block: 1rem;
   margin-block: 1rem;
 }
 .preparation h2 {
@@ -99,6 +100,7 @@ hr {
   color: var(--color-stone600);
   line-height: 2rem;
   padding-left: 1.5rem;
+  
 }
 .preparation li strong {
   font-weight: 700;
